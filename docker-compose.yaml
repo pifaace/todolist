@@ -1,0 +1,12 @@
+services:
+  database_todo:
+    image: postgres
+    container_name: database_todo
+    ports:
+      - '5434:5432'
+    environment:
+      POSTGRES_DB: todo_express
+      POSTGRES_USER: todo
+      POSTGRES_PASSWORD: todo
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
