@@ -2,11 +2,13 @@ import express, { NextFunction } from 'express';
 import routes from './app/routes';
 import createError, { HttpError } from 'http-errors';
 import ValidatorException from './app/exception/validator.exception';
+import helmet from 'helmet';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(helmet());
 app.use('/api', routes);
 
 app.listen(port, () => {
